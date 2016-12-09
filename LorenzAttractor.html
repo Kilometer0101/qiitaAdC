@@ -128,23 +128,7 @@ $(document).ready(function () {
 <p>右下の赤点が始点です。 色盲の方、すみません。 アドカレという事で、赤緑配色にしてしまいました。</p>
 <pre class="r"><code>Col &lt;- colorRampPalette(c(&quot;#ff9900&quot;,&quot;#edc58f&quot;,&quot;#66ccff&quot;,&quot;#0041ff&quot;))</code></pre>
 <p>とかにすると、青→オレンジぐらいのグラデーションで見られます。</p>
-<p>　</p>
-<pre class="r"><code>X &lt;- function(t, state, parameters){
-  with(as.list(c(state, parameters)),{
-    dx &lt;- a*(y-x)
-    dy &lt;- r*x-y-x*z
-    dz &lt;- -b*z + x*y
-    list(c(dx, dy, dz))
-  })
-}
-parameters &lt;- c(a = 10, b=8/3, r=40)
-times &lt;- seq(0, 200, 0.01)
-initial &lt;- c(x=0, y=0.1, z=0)
-out &lt;- ode(y = initial, times = times, func = X, parms = parameters)
-Col &lt;- colorRampPalette(c(&quot;#ff2800&quot;,&quot;#ff9900&quot;,&quot;#35a16b&quot;, &quot;green&quot;))
-
-plot3d(out[,c(&quot;x&quot;, &quot;y&quot;, &quot;z&quot;)], type=&quot;n&quot;, box=F)
-points3d(out[,c(&quot;x&quot;, &quot;y&quot;, &quot;z&quot;)], col=Col(length(times)))</code></pre>
+　
 <script>/*
 * Copyright (C) 2009 Apple Inc. All Rights Reserved.
 *
